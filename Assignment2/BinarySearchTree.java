@@ -7,11 +7,11 @@
 
 public class BinarySearchTree<S>{
    
-   Node rootPtr; //holds root of a specific tree
+   Node<S> rootPtr; //holds root of a specific tree
    int numOfNodes;
 
    public BinarySearchTree(){
-      rootPtr = new <S>Node();
+      rootPtr = new Node<S>();
       numOfNodes = 0;
 
    }//end constructor
@@ -23,10 +23,10 @@ public class BinarySearchTree<S>{
          rootPtr.setValue(value);   
       
       //else if value is less than true root
-      else if(value < rootPtr.getValue()){
+      else if(value.compareTo(rootPtr.getValue())){
          //determine if root has left child
          if(rootPtr.hasLeft())
-            insert(rootPtr, value);
+            insert(rootPtr.getLeft(), value);
          else
             rootPtr.setLeft(value);
       }//end else if
@@ -34,12 +34,18 @@ public class BinarySearchTree<S>{
       //else value is greater than root
       else{ 
          if(rootPtr.hasRight())
-            insert(rootPtr, value);
+            insert(rootPtr.getRight(), value);
          else
             rootPtr.setRight(value);
       }//end else
 
    }//end method insert
+
+   //inserts value at appropriate location in tree
+   //overloaded. Accepts Child of previous node and value to insert
+   public void insert(S Node, S value){
+
+   }//end method insert overloaded
 
    public int getSize(){
       return numOfNodes;
