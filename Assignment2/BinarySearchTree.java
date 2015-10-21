@@ -7,11 +7,11 @@
 
 public class BinarySearchTree<S>{
    
-   Node<S> rootPtr; //holds root of a specific tree
+   BinaryNode<S> rootPtr; //holds root of a specific tree
    int numOfNodes;
 
    public BinarySearchTree(){
-      rootPtr = new Node<S>();
+      rootPtr = new BinaryNode<S>();
       numOfNodes = 0;
 
    }//end constructor
