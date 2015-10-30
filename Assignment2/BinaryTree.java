@@ -10,7 +10,7 @@ public class BinaryTree<T>{
     * Default constructor
     */
    public BinaryTree(){
-
+      System.out.println("No data presented yet.");
    }
 
    /**
@@ -85,7 +85,7 @@ public class BinaryTree<T>{
          if(!seq[leftIndex].equals(nullSymbol)){
             leftNode = new BinaryNode<T>(seq[leftIndex]);
          }
-         nodes.get(parentIndex).leftNode = leftNode;
+         nodes.get(parentIndex).setLeftNode = leftNode;
          nodes.add(leftNode);
 
          int rightIndex = (parentIndex * 2) + 2;				
@@ -94,7 +94,7 @@ public class BinaryTree<T>{
             if(!seq[rightIndex].equals(nullSymbol)){
                rightNode = new BinaryNode<T>(seq[rightIndex]);
             }
-            nodes.get(parentIndex).rightNode = rightNode;
+            nodes.get(parentIndex).setRightNode = rightNode;
             nodes.add(rightNode);			
          }
       }
