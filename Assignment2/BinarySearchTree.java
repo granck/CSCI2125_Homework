@@ -5,38 +5,37 @@
  */
 
 
-public class BinarySearchTree<S>{
+public class BinarySearchTree<T> extends BinaryTree<T>{
    
    BinaryNode<T> rootPtr; //holds root of a specific tree
    int numOfNodes;
 
    public BinarySearchTree(){
-      rootPtr = new BinaryNode<S>();
-      numOfNodes = 0;
+      super;
 
    }//end constructor
    
    //recursive
    //inserts value at appropriate location in tree
-   public void insert(S value){
-      if (rootPtr.getValue() == null)
-         rootPtr.setValue(value);   
+   public void insert(T value){
+      if (root.getData() == null)
+         root.setData(value);   
       
       //else if value is less than true root
-      else if(value.compareTo(rootPtr.getValue())){
+      else if(value.compareTo(root.getData())){
          //determine if root has left child
-         if(rootPtr.hasLeft())
-            insert(rootPtr.getLeft(), value);
+         if(root.getLeftNode())
+            insert(root.getLeftNode(), value);
          else
-            rootPtr.setLeft(value);
+            root.setLeftNode(new BinaryNode<T>(value));
       }//end else if
 
       //else value is greater than root
       else{ 
-         if(rootPtr.hasRight())
-            insert(rootPtr.getRight(), value);
+         if(root.getRightNode())
+            insert(root.getRightNode(), value);
          else
-            rootPtr.setRight(value);
+            root.setRightNode(new BinaryNode<T>(value));
       }//end else
 
    }//end method insert
