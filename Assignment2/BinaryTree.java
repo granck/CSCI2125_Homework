@@ -85,7 +85,7 @@ public class BinaryTree<T>{
          if(!seq[leftIndex].equals(nullSymbol)){
             leftNode = new BinaryNode<T>(seq[leftIndex]);
          }
-         nodes.get(parentIndex).setLeftNode = leftNode;
+         nodes.get(parentIndex).setLeftNode(leftNode);// = leftNode;
          nodes.add(leftNode);
 
          int rightIndex = (parentIndex * 2) + 2;				
@@ -94,7 +94,7 @@ public class BinaryTree<T>{
             if(!seq[rightIndex].equals(nullSymbol)){
                rightNode = new BinaryNode<T>(seq[rightIndex]);
             }
-            nodes.get(parentIndex).setRightNode = rightNode;
+            nodes.get(parentIndex).setRightNode(rightNode); // = rightNode;
             nodes.add(rightNode);			
          }
       }
@@ -113,10 +113,31 @@ public class BinaryTree<T>{
    }
 
    public String breadthFirstTraverse(){
-      // TODO: Modify this method-body to return a string corresponding
-      // to the bread-first-traversal of the tree	
-      System.out.println("Feature not implemented yet, returning empty string");	
-      return "";
+
+      //Creates stringBuffer to store string of node data
+      StringBuilder stringBuffer = new StringBuilder();
+
+      //Using a SinglyLinkedList as que. Pushing doesn't require increasing size of an array
+      //Popping doesn't require reducing all indexed values by 1
+      SinglyLinkedList<T> que = new SinglyLinkedList<T>(root);
+      
+
+      //while our que isn't empty, continue to pop que
+      while(!que.isEmpty()){
+         BinaryNode<T> currentNode;
+         currentNode = que.popNode();
+         stringBuffer.append(" " + currentNode.toString());
+         
+         //if current node has children, pop them to stack
+         if(currentNode.getLeftNode() != null)
+            que.pushNode(currentNode.getLeftNode());
+         if(currentNode.getRightNode() != null)
+            que.pushNode(currentNode.getRightNode());
+
+      }//end while
+      
+      return stringBuffer.toString();
+
    }
 
    public String preOrderTraverse(){
@@ -209,14 +230,37 @@ public class BinaryTree<T>{
       }
 
       public String postOrderTraverse(){			
-         System.out.println("This method is yet to be implemented");
-         return "String";
+
+         StringBuilder stringBuffer = new StringBuilder();			
+
+         if(leftNode != null){
+            stringBuffer.append(leftNode.postOrderTraverse());				
+         }
+
+         if(rightNode != null){
+            stringBuffer.append(rightNode.postOrderTraverse());
+         }
+
+         stringBuffer.append(" " + data);
+
+         return stringBuffer.toString();				
       }
 
       public String inOrderTraverse(){	
+         StringBuilder stringBuffer = new StringBuilder();			
 
-         System.out.println("This method is yet to be implemented");
-         return "String";
+         if(leftNode != null){
+            stringBuffer.append(leftNode.inOrderTraverse());				
+         }
+
+         stringBuffer.append(" " + data);
+
+         if(rightNode != null){
+            stringBuffer.append(rightNode.inOrderTraverse());
+         }
+
+         return stringBuffer.toString();				
+
       }
    }
 }
