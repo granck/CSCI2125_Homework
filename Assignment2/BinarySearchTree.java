@@ -8,11 +8,15 @@
 public class BinarySearchTree<T> extends BinaryTree<T>{
    
    BinaryNode<T> rootPtr; //holds root of a specific tree
-   int numOfNodes;
+   private int numOfNodes = 0;
 
-   public BinarySearchTree(){
-      super;
+   public BinarySearchTree(T[] seq){
+      super(seq);
 
+   }//end constructor
+
+   public BinarySearchTree(T[] seq, T nullSymbol){
+      super(seq, nullSymbol);
    }//end constructor
    
    //recursive
@@ -42,7 +46,7 @@ public class BinarySearchTree<T> extends BinaryTree<T>{
 
    //inserts value at appropriate location in tree
    //overloaded. Accepts Child of previous node and value to insert
-   public void insert(S Node, S value){
+   public void insert(BinaryNode<T> currentRoot, T value){
 
    }//end method insert overloaded
 
