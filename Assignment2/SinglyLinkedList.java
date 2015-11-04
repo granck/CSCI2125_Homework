@@ -1,4 +1,4 @@
-/**
+/*
  * SinglyLinkedList.java
  * Singly linked list with inner class Iterator and inner class Node
  * Garrick Ranck, November 6, 2015
@@ -24,7 +24,8 @@ public class SinglyLinkedList<T> extends BinaryTree<T>{
       tail = tail.getNext();
 
    }//end method pushNode
-
+	
+	//@requires isEmpty != true
    public BinaryNode<T> popNode(){
       Node<T> removed = head;
       head = head.getNext();
