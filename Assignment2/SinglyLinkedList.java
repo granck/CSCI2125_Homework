@@ -13,15 +13,21 @@ public class SinglyLinkedList<T> extends BinaryTree<T>{
    private Node<T> tail;
 
    public SinglyLinkedList(BinaryNode<T> node){
-      head = new Node<T>(node);
-      tail = head;
+      tail = new Node<T>(node);
+      head= tail;
 
    }//end constructor
 
    //method adds an element to list
    public void pushNode(BinaryNode<T> node){
-      tail.setNext(node);
-      tail = tail.getNext();
+      Node<T> temp;
+      temp = head;
+      while(temp.getNext() != null)
+         temp = temp.getNext();
+      temp.setNext(node);
+      tail = temp.getNext();
+      //tail.setNext(node);
+      //tail = tail.getNext();
 
    }//end method pushNode
 	
