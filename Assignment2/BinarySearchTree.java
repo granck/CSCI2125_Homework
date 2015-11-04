@@ -22,7 +22,8 @@ public class BinarySearchTree<T> extends BinaryTree<T>{
    }//end constructor
    
    //inserts value at appropriate location in tree
-   public void insert(T value){
+   /*
+    * public void insert(T value){
       if (root.getData() == null)
          root.setData(value);   
       
@@ -46,11 +47,14 @@ public class BinarySearchTree<T> extends BinaryTree<T>{
 
    }//end method insert
 
+   **/
+
    //recursively determines placement of value in tree
 	//does nothing if value currently exists in tree
 	//inserts value at appropriate location in tree
    //accepts child of previous node and value to insert
-   public void insert(BinaryNode<T> currentRoot, T value){
+   /*
+    * public void insert(BinaryNode<T> currentRoot, T value){
 		
 		//determine if value is less than root 
 		if(value.compareTo(currentRoot.getData()) < 0){
@@ -71,6 +75,8 @@ public class BinarySearchTree<T> extends BinaryTree<T>{
 		}//end else if
 
    }//end method insert overloaded
+
+   **/
 	
 	//removes node 
 	public void remove(T value){
