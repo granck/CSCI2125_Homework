@@ -9,25 +9,25 @@ import java.util.*;
 
 public class SinglyLinkedList<T> extends BinaryTree<T>{
 
-   private Node<T> head;
-   private Node<T> tail;
+   private Node<T> head = null;
+   private int count;
 
    public SinglyLinkedList(BinaryNode<T> node){
-      tail = new Node<T>(node);
-      head= tail;
+      head = new Node<T>(node);
+      count = 0;
 
    }//end constructor
 
    //method adds an element to list
    public void pushNode(BinaryNode<T> node){
-      Node<T> temp;
-      temp = head;
-      while(temp.getNext() != null)
-         temp = temp.getNext();
-      temp.setNext(node);
-      tail = temp.getNext();
-      //tail.setNext(node);
-      //tail = tail.getNext();
+      Node<T> temp = new Node<T>(node);
+      Node<T> current = head;
+
+      while(current.getNext() != null)
+         current = current.getNext();
+
+      current.setNext(temp);
+      count++;
 
    }//end method pushNode
 	
@@ -35,12 +35,16 @@ public class SinglyLinkedList<T> extends BinaryTree<T>{
    public BinaryNode<T> popNode(){
       Node<T> removed = head;
       head = head.getNext();
+      count--;
       return removed.getData();
 
    }//end method popNode
 
    public boolean isEmpty(){
-      if(head == null)
+      //if(head == null)
+      //   return true;
+      //return false;
+      if(count == 0)
          return true;
       return false;
    }//end method isEmpty
@@ -50,7 +54,7 @@ public class SinglyLinkedList<T> extends BinaryTree<T>{
 
       private BinaryNode<T> data; 
       private Node<T> next; //next linked node in the list
-
+      
       //creates node with input as value 
       public Node (BinaryNode<T> data){
          this.data = data;
@@ -60,9 +64,9 @@ public class SinglyLinkedList<T> extends BinaryTree<T>{
 
       //assigns value of next node as the input
       //@requires input = Node of type Element
-      public void setNext(BinaryNode<T> next){
+      public void setNext(Node<T> next){
 
-         this.next = new Node<T>(next);
+         this.next = next;
 
       }//end method setNext
 
