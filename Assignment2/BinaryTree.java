@@ -164,7 +164,7 @@ public class BinaryTree<T>{
 		while(!que.isEmpty()){
 			BinaryNode<T> currentNode;
 			currentNode = que.popNode();
-			stringBuffer.append(" " + currentNode.toString());
+			stringBuffer.append(" " + currentNode.getData());
 
 			//if current node has children, push them to stack
 			if(currentNode.getLeftNode() != null)
