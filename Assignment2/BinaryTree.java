@@ -190,7 +190,7 @@ public class BinaryTree<T extends Comparable<T>>{
       return root.inOrderTraverse().trim();
    }
 
-   class BinaryNode<T>{
+   class BinaryNode<T extends Comparable<T>>{
       private T data = null;
       private BinaryNode<T> leftNode = null;
       private BinaryNode<T> rightNode = null;
