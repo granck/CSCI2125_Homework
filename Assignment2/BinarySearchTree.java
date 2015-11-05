@@ -56,19 +56,19 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T>{
 		//determine if value is less than root 
 		if(value.compareTo(currentRoot.getData()) < 0){
 			//deterine if root has a left child
-			if(root.getLeftNode() != null)
-				insert(root.getLeftNode(), value);
+			if(currentRoot.getLeftNode() != null)
+				insert(currentRoot.getLeftNode(), value);
 			else
-				root.setLeftNode(new BinaryNode<T>(value));
+				currentRoot.setLeftNode(new BinaryNode<T>(value));
 		}//end if
 		
 		//determine if value is greater than root
 		else if(value.compareTo(currentRoot.getData()) > 0){
 			//determine if root has a right child
-			if(root.getRightNode() != null)
-				insert(root.getRightNode(), value);
+			if(currentRoot.getRightNode() != null)
+				insert(currentRoot.getRightNode(), value);
 			else
-				root.setRightNode(new BinaryNode<T>(value));
+				currentRoot.setRightNode(new BinaryNode<T>(value));
 		}//end else if
 
    }//end method insert overloaded
