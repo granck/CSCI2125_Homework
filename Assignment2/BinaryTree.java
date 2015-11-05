@@ -1,7 +1,7 @@
 import java.util.List;
 import java.util.ArrayList;
 
-public class BinaryTree<T>{
+public class BinaryTree<T extends Comparable<T>>{
    BinaryNode<T> root = null;	
 
    private T nullSymbol = null;
