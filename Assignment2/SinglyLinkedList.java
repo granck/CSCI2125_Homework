@@ -7,7 +7,7 @@
 
 import java.util.*;
 
-public class SinglyLinkedList<T> extends BinaryTree<T>{
+public class SinglyLinkedList<T extends Comparable<T>> extends BinaryTree<T>{
 
    private Node<T> head;
    private int count;
