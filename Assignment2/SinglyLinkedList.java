@@ -9,12 +9,12 @@ import java.util.*;
 
 public class SinglyLinkedList<T> extends BinaryTree<T>{
 
-   private Node<T> head = null;
+   private Node<T> head;
    private int count;
 
    public SinglyLinkedList(BinaryNode<T> node){
       head = new Node<T>(node);
-      count = 0;
+      count = 1;
 
    }//end constructor
 
@@ -23,12 +23,18 @@ public class SinglyLinkedList<T> extends BinaryTree<T>{
       Node<T> temp = new Node<T>(node);
       Node<T> current = head;
 
-      while(current.getNext() != null)
-         current = current.getNext();
-
-      current.setNext(temp);
-      count++;
-
+      if(current == null){
+         head = new Node<T>(node);
+         count++;
+      }//end if
+      
+      else{
+         while(current.getNext() != null){
+            current = current.getNext();
+         }//end while
+         current.setNext(temp);
+         count++;
+      }//end else
    }//end method pushNode
 	
 	//@requires isEmpty != true
