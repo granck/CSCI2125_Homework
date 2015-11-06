@@ -22,6 +22,10 @@ public class SimpleTest{
       System.out.println("inOrderTraversal after adding 5: " + tree.inOrderTraverse());
       System.out.println("Is 5 in tree: " + tree.contains(5));
 
+      tree.remove(5);
+      System.out.println("After removing 5.");
+      System.out.println("InOrder Traverse: " + tree.inOrderTraverse());
+
 
    }//end main method
 }//end class
