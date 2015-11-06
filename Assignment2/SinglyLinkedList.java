@@ -56,7 +56,7 @@ public class SinglyLinkedList<T extends Comparable<T>> extends BinaryTree<T>{
    }//end method isEmpty
 
    //inner class contains data of an element in linked list
-   private class Node<T>{ 
+   private class Node<T extends Comparable<T>>{ 
 
       private BinaryNode<T> data; 
       private Node<T> next; //next linked node in the list
