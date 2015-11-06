@@ -20,6 +20,7 @@ public class SimpleTest{
       
       tree.insert(5);
       System.out.println("inOrderTraversal after adding 5: " + tree.inOrderTraverse());
+      System.out.println("Is 5 in tree: " + tree.contains(5));
 
 
    }//end main method
