@@ -82,5 +82,56 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T>{
       return numOfNodes;
 
    }//end method getSize
+   
+   //returns boolean true if value is in tree
+   //else returns false
+   public boolean contains(T value){
+
+      //value is equal to root
+      if(value.compareTo(root.getData()) == 0)
+         return true; 
+      
+      //value is less than root
+      else if(value.compareTo(root.getData()) < 0){
+         if(root.getLeftNode() == null)
+            return false;
+         else
+            return contains(root.getLeftNode(), value);
+      }//end if less than root
+      
+      //value is greater than root
+      else{
+         if(root.getRightNode() == null)
+            return false;
+         else
+            return contains(root.getRightNode(), value);
+      }//end else
+
+   }//end method contains
+
+   public boolean contains(BinaryNode<T> currentRoot, T value){
+      
+      //if value is equal to currentRoot
+      if(value.compareTo(currentRoot.getData()) == 0)
+         return true;
+      
+      //else if value is less than currentRoot
+      else if(value.compareTo(currentRoot.getData()) < 0){
+         if(currentRoot.getLeftNode() == null)
+            return false;
+         else
+            return contains(currentRoot.getLeftNode(), value);
+      }//end else if less than root
+
+      //value is greater than root
+      else{
+         if(currentRoot.getRightNode() == null)
+            return false;
+         else
+            return contains(currentRoot.getRightNode(), value);
+
+      }//end else value is greater than root
+
+   }//end method contains(2 parameters)
 
 }//end class BinarySearchTree
