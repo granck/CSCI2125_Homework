@@ -75,8 +75,72 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T>{
 	
 	//removes node 
 	public void remove(T value){
-
+      
+      remove(root, value);
 	}//end method remove
+
+   public boolean remove(BinaryNode<T> currentRoot, T value){
+      if(currentRoot.getData() == null)
+         System.out.println("No such value in tree.");
+      else if(value.compareTo(currentRoot.getData()) == 0){
+         //if currentRoot has 2 children
+         if(currentRoot.getLeftNode() != null && currentRoot.getRightNode() != null){
+            BinaryNode<T> tempNode = findLowest(currentRoot.getRightNode());
+            currentRoot.setData(tempNode.getData());
+            if(remove(currentRoot.getRightNode(), currentRoot.getData())){
+               currentRoot.setRightNode(null);
+               return false;
+            }//end if
+         }
+         else if(currentRoot.getLeftNode() != null){
+            currentRoot.setData(currentRoot.getLeftNode().getData());
+            if(remove(currentRoot.getLeftNode(), currentRoot.getData())){
+               currentRoot.setLeftNode(null);
+               return false;
+            };
+         }//end else if currentRoot has only left child
+
+         else if(currentRoot.getRightNode() != null){
+            currentRoot.setData(currentRoot.getRightNode().getData());
+            if(remove(currentRoot.getRightNode(), currentRoot.getData())){
+               currentRoot.setRightNode(null);
+               return false;
+            }//end if
+         }//end else if currentRoot has only right child
+         
+         else{ //leaf node
+            //currentRoot.setData(null);
+            return true;
+         }//end else
+      }//end else if value is equal to root
+      
+      //value is less than currentRoot
+      else if(value.compareTo(currentRoot.getData()) < 0){
+         if(remove(currentRoot.getLeftNode(), value)){
+            currentRoot.setLeftNode(null);
+            return false;
+         }//end if
+      }//end else if
+      //value is greater than currentRoot
+      else{
+         if(remove(currentRoot.getRightNode(), value)){
+            currentRoot.setRightNode(null);
+            return false;
+         }//end if
+      }//end else
+
+      return false;
+
+
+   }//end overloaded remove method
+
+   public BinaryNode<T> findLowest(BinaryNode<T> currentRoot){
+      if(currentRoot.getLeftNode() != null)
+         return findLowest(currentRoot.getLeftNode());
+      else
+         return currentRoot;
+
+   }//end method BinaryNode<T>
 
    public int getSize(){
       return numOfNodes;
