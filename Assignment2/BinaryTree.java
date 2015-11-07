@@ -1,3 +1,10 @@
+/**
+ * BinaryTree.java
+ * Edited by Garrick Ranck
+ * Creates binary tree given a sequence of data, provides traversal, width, and height returns
+ * Novebmer 6, 2015
+ * Data Structures Assignment 2
+ **/
 import java.util.List;
 import java.util.ArrayList;
 
@@ -10,7 +17,6 @@ public class BinaryTree<T extends Comparable<T>>{
     * Default constructor
     */
    public BinaryTree(){
-      System.out.println("No data presented yet.");
    }
 
    /**
@@ -104,18 +110,23 @@ public class BinaryTree<T extends Comparable<T>>{
       if (root == null) return 0;	
       return root.height();
    }
-
+   
+   //@returns width of tree
    public int width (){
       int width = 0; //width of tree
       int currentLevel = 0; //number of nodes on current level
       int nextLevel = 0; //number of nodes on next level
 
       SinglyLinkedList<T> que;
+      //if root exists, default width of tree and currentLevel to 1
+      //and pass in root of tree to "que" LinkedList
+      //If no root, width is returned as 0
       if(root != null){
          width = 1;
          currentLevel = 1;
          que = new SinglyLinkedList<T>(root);
-
+         
+         //continue to loop until que is empty(till all nodes have been examined)
          while(!que.isEmpty()){
             while(currentLevel != 0){
                BinaryNode<T> currentNode;
@@ -149,7 +160,7 @@ public class BinaryTree<T extends Comparable<T>>{
 
       return width;
    }
-
+ 
    public String breadthFirstTraverse(){
 
       //Creates stringBuffer to store string of node data
@@ -159,12 +170,11 @@ public class BinaryTree<T extends Comparable<T>>{
       //Popping doesn't require reducing all indexed values by 1
       SinglyLinkedList<T> que = new SinglyLinkedList<T>(root);
 
-
       //while our que isn't empty, continue to pop que
       while(!que.isEmpty()){
          BinaryNode<T> currentNode;
          currentNode = que.popNode();
-         stringBuffer.append(" " + currentNode.getData());
+         stringBuffer.append(currentNode.getData() + " ");
 
          //if current node has children, push them to stack
          if(currentNode.getLeftNode() != null)
@@ -173,7 +183,9 @@ public class BinaryTree<T extends Comparable<T>>{
             que.pushNode(currentNode.getRightNode());
 
       }//end while
-
+      //remove empty space at end of string
+      if(stringBuffer.length() > 0)
+         stringBuffer.setLength(stringBuffer.length() -1);
       return stringBuffer.toString();
 
    }
