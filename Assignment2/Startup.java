@@ -1,7 +1,7 @@
 public class Startup{
 	
 	public static void main(String[] args){	
-		final int nullSymbol = 0;
+		final Integer nullSymbol = 0;
 
 		Integer[] breadthFirstSequence = {27, 13, 59, 3, 17, 43, 107, 2, 11};
 		

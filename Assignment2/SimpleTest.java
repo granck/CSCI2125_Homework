@@ -20,6 +20,15 @@ public class SimpleTest{
       
       tree.insert(5);
       System.out.println("inOrderTraversal after adding 5: " + tree.inOrderTraverse());
+      System.out.println("Is 5 in tree: " + tree.contains(5));
+
+      tree.remove(5);
+      System.out.println("After removing 5(no children).");
+      System.out.println("InOrder Traverse: " + tree.inOrderTraverse());
+
+      tree.remove(13);
+      System.out.println("After removing 13(2 children).");
+      System.out.println("InOrder Traverse: " + tree.inOrderTraverse());
 
 
    }//end main method
