@@ -29,4 +29,8 @@ public class UnboundedPriorityQueue<T extends Comparable<T>> {
 
    }//end method isEmpty
 
+	public int getSize(){
+		return que.getSize();
+	}//end method getSize
+
 }//end class UnboundedPriorityQue
