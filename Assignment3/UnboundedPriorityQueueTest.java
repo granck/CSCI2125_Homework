@@ -66,7 +66,7 @@ public class UnboundedPriorityQueueTest{
 		UnboundedPriorityQueue<Task> taskQueue = new UnboundedPriorityQueue<Task>();
 
 		taskQueue.enqueue(task1);
-		assertEquals("Task1", taskQueue.dequeue());
+		assertEquals("Task1", taskQueue.dequeue().getName());
 	
 	}//end method TestPopWithNonEmptyQueue
 
@@ -76,7 +76,7 @@ public class UnboundedPriorityQueueTest{
 		UnboundedPriorityQueue<Task> taskQueue = new UnboundedPriorityQueue<Task>();
 
 		taskQueue.enqueue(task1);
-		assertEquals("Task1", taskQueue.dequeue());
+		assertEquals("Task1", taskQueue.dequeue().getName());
 		assertEquals(null, taskQueue.dequeue());
 
 	}//end method TestPopBeforeAndAfterEmptyQueue
