@@ -40,7 +40,7 @@ public class MinHeap<T extends Comparable<T>>{
 			heap.remove(heap.size() - 1);
 			int index = 0;
 
-			while(getSize() != 0){
+			while(heap.size() != 0){
 
 				//if left child is less than parent
 				if((index*2 + 1) < heap.size() && heap.get(index*2 + 1).compareTo(heap.get(index)) < 0){
@@ -84,14 +84,14 @@ public class MinHeap<T extends Comparable<T>>{
 
 	}//end method remove
 
-	//@returns true if heap is empty, false if not
+	//@returns true if heap is empty, else returns false 
 	public boolean isEmpty(){
 		return heap.isEmpty();
 
 	}//end method isEmpty
 
-
-	//@returns true if heap is full, false if not
+	//Used for test purposes only to ensure heap values are being pushed/popped	
+	//@returns integer number of elements in heap
 	public int getSize(){
 		return heap.size(); //fix return value
 
